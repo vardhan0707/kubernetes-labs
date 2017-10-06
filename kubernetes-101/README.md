@@ -4,7 +4,8 @@ Kubernetes 101 is designed to give you a quick insight into the components and s
 
 Cluster Components
 
-![KOPS Deployment][img/deployment.png]
+![KOPS Deployment](img/deployment.png "KOPS Deployment")
+
 
 - masters
  - kube API Server
