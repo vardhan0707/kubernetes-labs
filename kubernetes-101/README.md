@@ -51,14 +51,36 @@ kube-scheduler watches newly created pods that have no node assigned, and select
 In A HA production setup you need at least 3 etcd servers. It's a key based store thats used to keep state data about whats happening in the cluster, and the k8s network.
 
 #### nodes
+
 ##### kubelet
+
+kubelet is the primary node agent. It watches for pods that have been assigned to its node (either by apiserver or via local configuration file) and:
+
+- Mounts the pod’s required volumes.
+- Downloads the pod’s secrets.
+- Runs the pod’s containers via docker (or, experimentally, rkt).
+- Periodically executes any requested container liveness probes.
+- Reports the status of the pod back to the rest of the system, by creating a mirror pod if necessary.
+- Reports the status of the node back to the rest of the system.
+
 ##### kube proxy
 
-####Networking
+kube-proxy enables the Kubernetes service abstraction by maintaining network rules on the host and performing connection forwarding.
+
+
+#### Networking
 
 ##### pods
 ##### services
 ##### calico
+
+Calico is a new approach to virtual networking and network security for containers, VMs, and bare metal services, that provides a rich set of security enforcement capabilities running on top of a highly scalable and efficient virtual network fabric. Calico includes pre-integration with Kubernetes and Mesos (as a CNI network plugin), Docker (as a libnetwork plugin) and OpenStack (as a Neutron plugin). Calico supports a broad range of deployment options including on premise or public cloud (AWS, GCE, etc) providing the same rich set of features across all.
+
+Calico's network policy enforcement ensures that the only packets that flow to/from a workload are the ones the developer or operater expects. This is achieved by mapping high-level developer/operator intent to fully distributed ACLs running on every host. You can think of Calico as providing every workload with a fully automated virtual firewall to protect the workload and to protect the rest of your application should that workload become compromised. Calico automatically maps any network policy concepts from the orchestration environment into Calico network policy. (For example, Calico was selected as the reference implementation of network policy for Kubernetes.) Calico network policy can also be specified using the Calico command line tools and APIs, either in place of or augmenting the policy concepts provided by the orchestration system.
+
+Calico's highly scalable network fabric is built using the same principles as the internet - the most highly scaled network in existence. In contrast to most virtual networking solutions, Calico provides a flat IP network that can typically be run without any encapsulation (no overlays). The ability to run without an overlay provides exceptional throughput characteristics, and for large scale service operators makes diagnosing network connectivity issues a breeze. In addition Calico's network fabric also includes the ability to route packets using a stateless IP-in-IP overlay for any scenarios where an overlay network might be preferred.
+
+Calico's network policy enforcement can also be combined with other virtual networking solutions. For example, the Canal project adds Calico policy enforcement to Flannel virtual networking. This exciting project brings rich network policy to Flannel users, and brings more network connectivity options to Calico users.
 
 ### Typical Deployment Diagram
 
