@@ -1,24 +1,35 @@
-101 Introduction
+# 101 Introduction
 
 Kubernetes 101 is designed to give you a quick insight into the components and simple operations of a k8s cluster. We'll also cover installing minikube and the kubectl cli on your local machine for testing.
 
-Cluster Components
+## Cluster Components
+
+### Overview
+
+
+![Kubernetes Components](img/components.png "fig.1")
+
+#### Masters
+
+##### kube API Server
+##### kube controller
+##### kube scheduler
+
+#### etcd
+
+#### nodes
+##### kubelet
+##### kube proxy
+
+####Networking
+
+##### pods
+##### services
+##### calico
+
+### Typical Deployment Diagram
 
 ![KOPS Deployment](img/deployment.png "KOPS Deployment")
-
-
-- masters
- - kube API Server
- - kube controller
- - kube scheduler
-- nodes
- - kubelet
- - kube proxy
-- etcd
-- Networking
- - pods
- - services
- - calico
 
 Temrinology
 - namespaces
