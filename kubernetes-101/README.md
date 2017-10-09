@@ -7,6 +7,7 @@ Kubernetes 101 is designed to give you a quick insight into the components and s
 ### Overview
 
 ![Kubernetes Components](img/components.png "fig.1")
+(Figure 1: Kubernetes Core Components)
 
 
 
@@ -132,12 +133,12 @@ Like Deployments, StatefulSets manage Pods that are based on an identical contai
 The diagram below shows how you would typically deploy a k8s stack in AWS. We'll cover the KOPS deployment in a later section. Its also good to note that the default KOPS deployment puts everything in a public subnet with internet routable IP's. Whilst the security groups protect access its not deemed best practice on AWS to do this, so the KOPS guide will cover doing this in a more best practice way.
 
 ![KOPS Deployment](img/deployment.png "fig. 2")
+(Figure 2: Typical AWS deployment of Kubernetes)
 
 ## Labs
 
 - [Installing k8s tools](labs/00-tools.md)
-
-Install Minikube
+- [Install Minikube](labs/01-minikube.md)
 
 Basic tool usage
 - create a namespace
