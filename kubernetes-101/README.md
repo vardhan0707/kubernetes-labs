@@ -141,4 +141,4 @@ The diagram below shows how you would typically deploy a k8s stack in AWS. We'll
 - Lab 2: [Install Minikube](./labs/01-minikube.md)
 - Lab 3: [Basic tool usage](./labs/02-basic-usage.md)
 
-##### Labs : [kubernetes-101](kubernetes-101/) | [kubernetes-201](kubernetes-201/) | [kubernetes-301](kubernetes-301/)
+##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)
