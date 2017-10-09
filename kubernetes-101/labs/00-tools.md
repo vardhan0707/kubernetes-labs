@@ -1,5 +1,6 @@
-# kubectl
+# Lab 1
 
+## kubectl
 kubectl is the command line tool for interacting with your kubernetes cluster, on a posix system it store credentials in a users home directory in a folder call ```.kube``` the main config is called ```config``` this normally contains user certificates and passwords as well as cluster connection information. It's important to keep a backup of this file!
 
 In the first lab we'll simply get this tool installed.
