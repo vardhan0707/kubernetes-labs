@@ -91,8 +91,10 @@ This will open a new browser window for you.
 
 **Extra:** You may notice you don't have the graphs in your dashboard but figure 3 does. If you want the graphs to show make sure the [heapster]() service is enabled and that it is started before the dashboard is brought up.
 
-## Labs
+## Exercises
 
-- Lab 1: [Installing k8s tools](../labs/00-tools.md)
-- Lab 2: [Install Minikube](../labs/01-minikube.md)
-- Lab 3: [Basic tool usage](../labs/02-basic-usage.md)
+- Lab 1: [Installing k8s tools](/kubernetes-101/labs/00-tools.md)
+- Lab 2: [Install Minikube](/kubernetes-101/labs/01-minikube.md)
+- Lab 3: [Basic tool usage](/kubernetes-101/labs/02-basic-usage.md)
+
+##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)
