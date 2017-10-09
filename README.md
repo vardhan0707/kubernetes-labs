@@ -1,4 +1,4 @@
-# Kubernetes Guides
+# Kubernetes Labs
 
 Current status
 
