@@ -8,6 +8,8 @@ Kubernetes 101 is designed to give you a quick insight into the components and s
 
 ![Kubernetes Components](img/components.png "fig.1")
 
+
+
 #### Masters
 
 Masters run four (three before 1.6) main components. In production, you should run multiple master servers and a loadbalancer across them. Its normal to run at least 3 masters, this allows the ETCD component to achieve quorum and have election to pick a master node.
@@ -133,9 +135,7 @@ The diagram below shows how you would typically deploy a k8s stack in AWS. We'll
 
 ## Labs
 
-Installing k8s tools
-- OSX
-- Linux
+- [Installing k8s tools](labs/00-tools.md)
 
 Install Minikube
 
