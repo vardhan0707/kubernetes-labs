@@ -93,6 +93,6 @@ This will open a new browser window for you.
 
 ## Labs
 
-- Lab 1: [Installing k8s tools](labs/00-tools.md)
-- Lab 2: [Install Minikube](labs/01-minikube.md)
-- Lab 3: [Basic tool usage](labs/02-basic-usage.md)
+- Lab 1: [Installing k8s tools](../labs/00-tools.md)
+- Lab 2: [Install Minikube](../labs/01-minikube.md)
+- Lab 3: [Basic tool usage](../labs/02-basic-usage.md)
