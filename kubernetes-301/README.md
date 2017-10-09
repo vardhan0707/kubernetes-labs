@@ -1,4 +1,4 @@
-201 Introduction
+301 Introduction
 
 Volume Types
 
@@ -14,3 +14,15 @@ Intermidate tool usage
 - Multiple containers
 - Persistant Volumes
 - Services / ELB integration
+
+DeamonSets
+
+StatefulSets
+
+AWS node scalling
+
+Advanced tool usage
+- cordon/uncordon
+- drain
+- Taints and Tolerences
+- ConfigMaps
