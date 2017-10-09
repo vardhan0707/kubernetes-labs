@@ -137,12 +137,6 @@ The diagram below shows how you would typically deploy a k8s stack in AWS. We'll
 
 ## Labs
 
-- [Installing k8s tools](labs/00-tools.md)
-- [Install Minikube](labs/01-minikube.md)
-
-Basic tool usage
-- create a namespace
-- start a pod
-- add a service / ingress
-- use a deployment
-- delete a pods,services,deployments
+- Lab 1: [Installing k8s tools](labs/00-tools.md)
+- Lab 2: [Install Minikube](labs/01-minikube.md)
+- Lab 3: [Basic tool usage](labs/02-basic-usage.md)

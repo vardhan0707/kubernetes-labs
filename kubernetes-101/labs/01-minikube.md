@@ -6,7 +6,7 @@ Minikube is a kubernetes led project to install a local testing cluster of kuber
 
 **NOTE:** if you have a VPN on your system this can sometimes clash with the virtual network minikube creates so be aware of this if you ave connectivity issues.
 
-## Exercise
+## Exercises
 
 Install and connect to minikube using kubectl. Documentation can be found [here](https://github.com/kubernetes/minikube/). Ensure you have one of the required hypervisors installed!
 
@@ -70,7 +70,12 @@ If kubectl is configured correctly these commands should work fine.
 
 ### 4. Enable the dashboard
 
-The [kubernetes dashboard](https://github.com/kubernetes/dashboard) is a web GUI to give you visability into your cluster. On minikube you can easily install this by running the following command:
+The [kubernetes dashboard](https://github.com/kubernetes/dashboard) is a web GUI to give you visibility into your cluster.
+
+![Dashboard](../labs/img/dashboard.png "fig. 3")
+(Figure 3: Kubernetes dashboard)
+
+On minikube you can easily install this by running the following command:
 
 ```
 minikube addons enable dashboard
@@ -83,3 +88,11 @@ minikube dashboard
 ```
 
 This will open a new browser window for you.
+
+**Extra:** You may notice you don't have the graphs in your dashboard but figure 3 does. If you want the graphs to show make sure the [heapster]() service is enabled and that it is started before the dashboard is brought up.
+
+## Labs
+
+- Lab 1: [Installing k8s tools](labs/00-tools.md)
+- Lab 2: [Install Minikube](labs/01-minikube.md)
+- Lab 3: [Basic tool usage](labs/02-basic-usage.md)

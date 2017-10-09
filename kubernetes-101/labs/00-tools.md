@@ -5,7 +5,7 @@ kubectl is the command line tool for interacting with your kubernetes cluster, o
 
 In the first lab we'll simply get this tool installed.
 
-## Exercise
+## Exercises
 
 For the first exercise we will install the kubectl tool to allow you to administer kubernetes clusters on your local machine and get familiar with the commands.
 
@@ -197,3 +197,9 @@ kubectl delete pod <pod_name>
 
 - kubectl cheat sheet - [link](https://kubernetes.io/docs/user-guide/kubectl-cheatsheet/)
 - kubectx - [kubectx](https://github.com/ahmetb/kubectx)
+
+## Labs
+
+- Lab 1: [Installing k8s tools](labs/00-tools.md)
+- Lab 2: [Install Minikube](labs/01-minikube.md)
+- Lab 3: [Basic tool usage](labs/02-basic-usage.md)
