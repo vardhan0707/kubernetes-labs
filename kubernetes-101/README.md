@@ -87,9 +87,9 @@ Services also have an internal network to Kubernetes. When you assign a service 
 
 By default Kubernetes uses KubeNet as its network model. However its possible to swap this out to a Container Network Interface (CNI) compatible alternative. A few options are:
 
-- Project Calico
-- Weave
-- flanneld
+- [Project Calico](https://www.projectcalico.org/)
+- [Weave](https://www.weave.works/oss/net/)
+- [flanneld](https://github.com/coreos/flannel)
 
 and many more. Each option has its pro's and con's so take a good look a the one that suits you. Calico for example is very good at integrating and managing network policies.
 
