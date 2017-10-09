@@ -1,6 +1,6 @@
 # 101 Introduction
 
-Kubernetes 101 is designed to give you a quick insight into the components and simple operations of a k8s cluster. We'll also cover installing minikube and the kubectl cli on your local machine for testing and running the lab exercises locally to give you experience with kubectl (the kubernetes command line interface)
+Kubernetes 101 is designed to give you a quick insight into the components and simple operations of a k8s cluster. We'll also cover installing minikube and the kubectl cli on your local machine for testing and running the lab exercises locally to give you experience with kubectl (the kubernetes command line interface). The guide is designed as a high level overview however we will link out to resources should you wish to read more on a given subject.
 
 ## Cluster Components
 
@@ -126,6 +126,8 @@ A StatefulSet has guarantees about ordering. They do so by maintaining a unique,
 Like Deployments, StatefulSets manage Pods that are based on an identical container spec. However, although their specs are the same, the Pods in a StatefulSet are not interchangeable. Each Pod has a persistent identifier that it maintains across any rescheduling.
 
 ### Typical Deployment Diagram using KOPS and AWS
+
+The diagram below shows how you would typically deploy a k8s stack in AWS. We'll cover the KOPS deployment in a later section. Its also good to note that the default KOPS deployment puts everything in a public subnet with internet routable IP's. Whilst the security groups protect access its not deemed best practice on AWS to do this, so the KOPS guide will cover doing this in a more best practice way.
 
 ![KOPS Deployment](img/deployment.png "fig. 2")
 
