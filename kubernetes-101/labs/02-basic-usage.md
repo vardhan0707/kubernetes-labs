@@ -4,6 +4,8 @@
 
 The aim of this lab is to get familiar with the basics. By the end you'll be able to create, find, modify and delete resources within your cluster.
 
+Code examples for this Lab can be found [here](/kubernetes-101/labs/files)
+
 ## Exercises  
 
 ### 1. Create/Use a namespace
