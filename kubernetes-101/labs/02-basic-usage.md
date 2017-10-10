@@ -302,6 +302,15 @@ kubectl apply -f combined.yaml
 
 You can test the deployment by going to http://minikube-ip:30100
 
+Another interesting thing to note is that a Deployment/ReplicaSet ensures you always have the correct number of replicas running. Try deleting one of you containers and then look at the get pods output again.
+
+```
+kubectl delete pod <POD_NAME> -n my-namepsace
+kubectl get pods -n my-namepsace
+```
+
+You should see that kubernetes starts a new pod to replace the terminated one.
+
 ### 5. Delete pods,services,deployments
 
 Lets tidy up the resources we've just created.
