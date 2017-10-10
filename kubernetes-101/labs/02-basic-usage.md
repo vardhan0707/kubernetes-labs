@@ -254,6 +254,50 @@ To scale down simply reduce the replicas in the command.
 
 **NOTE:** Even if deploying a single container its worth always using a deployment to give you future flexibility. You can also scale a deployment by updating the yaml file and using ```kubectl apply -f deployment.yaml```
 
+Its also worth noting you can combine the yaml into a single file to keep parts of deployments together. Here is combined.yaml:
+
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-deployment-combinded
+  namespace: my-namespace
+spec:
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        app: nginx-combined
+    spec:
+      containers:
+      - name: nginx-combined
+        image: nginx:1.13.5
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-deployment-service-combined
+  namespace: my-namespace
+spec:
+  selector:
+    app: nginx-combined
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 80
+    nodePort: 30100
+```
+
+Now run:
+
+```
+kubectl apply -f combined.yaml
+```
+
 ### 5. Delete pods,services,deployments
 
 Lets tidy up the resources we've just created.
@@ -263,6 +307,7 @@ kubectl delete -f pod.yaml
 kubectl delete -f service.yaml
 kubectl delete -f deployment.yaml
 kubectl delete -f deployment-service.yaml
+kubectl delete -f combined.yaml
 ```
 
 ## Exercises
