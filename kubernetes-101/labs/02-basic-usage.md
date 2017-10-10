@@ -252,7 +252,7 @@ Events:                   <none>
 
 To scale down simply reduce the replicas in the command.
 
-**NOTE:** Even if deploying a single container its worth always using a deployment to give you future flexibility.
+**NOTE:** Even if deploying a single container its worth always using a deployment to give you future flexibility. You can also scale a deployment by updating the yaml file and using ```kubectl apply -f deployment.yaml```
 
 ### 5. Delete pods,services,deployments
 
