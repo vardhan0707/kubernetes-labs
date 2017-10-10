@@ -42,7 +42,7 @@ kubectl get pods -n kube-system
 
 Now we have our own workspace we can start services in this and quickly find the resources we create. Start bt creating a new file ```pod.yaml``` with the following contents and be sure to edit the _my-namespace_ to match the one you just created:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -91,7 +91,7 @@ minikube ip
 
 Now lets make a service of Type NodePort, create a file called service.yaml
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -156,7 +156,7 @@ Here you can see the service has discovered our container and added its IP to th
 
 The examples above get a service running and exposes it to the outside world, however theres is only a single endpoint on the NodePort. If you want some resilience this is where a deployment comes in. A deployment is a configurable ReplicaSet so this allows us to have multiple pods of the same type and scale them up and down, thus adding or removing resource in the service endpoint. Lets create a deployment using the file deployment.yaml
 
-```
+```yaml
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -186,7 +186,7 @@ kubectl apply -f deployment.yaml
 
 Now we need a service for this deployment, create a file called deployment-service.yaml:
 
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -258,7 +258,7 @@ To scale down simply reduce the replicas in the command.
 
 Its also worth noting you can combine the yaml into a single file to keep parts of deployments together. Here is combined.yaml:
 
-```
+```yaml
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
