@@ -300,6 +300,8 @@ Now run:
 kubectl apply -f combined.yaml
 ```
 
+You can test the deployment by going to http://minikube-ip:30100
+
 ### 5. Delete pods,services,deployments
 
 Lets tidy up the resources we've just created.
