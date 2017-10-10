@@ -27,7 +27,7 @@ kubectl create ns my-namespace
 You can validate that its been created by listing the namespaces again. You can now use the namespace when using other kubectl commands. For example the following command should return _"No resources found."_:
 
 ```
-kubectl get pods -n <NAME>
+kubectl get pods -n my-namespace
 ```
 
 But if you run the command against the kube-system namespace you'll see lots of pods returned:
