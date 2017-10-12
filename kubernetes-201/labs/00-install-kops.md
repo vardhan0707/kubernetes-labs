@@ -184,11 +184,19 @@ Setup an S3 Bucket
 
 I used the aws cli to create an S3 Bucket:
 
-```
+```bash
 aws s3 mb s3://my-kops-configs
 ```
 
 **Note:** you can use the bucket to store more than one cluster state
+
+Its highly recommended to enable versioning on your S3 bucket:
+
+```bash
+aws s3api put-bucket-versioning --bucket my-kops-config  --versioning-configuration Status=Enabled
+```
+
+**Note:** S3 requires `--create-bucket-configuration LocationConstraint=<region>` for regions other than `us-east-1`.
 
 ## Exercises
 
