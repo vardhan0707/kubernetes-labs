@@ -8,6 +8,8 @@ In this lab we are going to productionise a k8s cluster using the KOPS deploymen
 
 kops helps you create, destroy, upgrade and maintain production-grade, highly available, Kubernetes clusters from the command line. AWS (Amazon Web Services) is currently officially supported, with GCE and VMware vSphere in alpha and other platforms planned.
 
+KOPS = Kluster Operations
+
 #### Features
 
 - Automates the provisioning of Kubernetes clusters in (AWS)
