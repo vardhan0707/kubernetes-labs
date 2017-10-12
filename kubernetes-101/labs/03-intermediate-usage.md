@@ -10,19 +10,19 @@ You can tail logs from containers pretty easily. kubectl allows you to do this r
 
 First locate your container
 
-```
+```bash
 kubectl -n my-namespace get po
 ```
 
 make a note of the container name, then run:
 
-```
+```bash
 kubectl -n my-namespace logs <container-name>
 ```
 
 you can also follow the logs with:
 
-```
+```bash
 kubectl -n my-namespace logs -f <container-name>
 ```
 
@@ -30,13 +30,13 @@ kubectl -n my-namespace logs -f <container-name>
 
 Exec lets you run a command in a container much like the ```docker exec``` command. Once again first find your conatiner name:
 
-```
+```bash
 kubectl -n my-namespace get po
 ```
 
 make a note of the container name, then run:
 
-```
+```bash
 kubectl -n my-namespace exec -it <container-name> <command>
 ```
 

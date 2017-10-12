@@ -14,25 +14,25 @@ Namespaces are a great way of separating logical workloads, so its a good starti
 
 Start by listing your namespaces:
 
-```
+```bash
 kubectl get ns
 ```
 
 Now create your own namespace:
 
-```
+```bash
 kubectl create ns my-namespace
 ```
 
 You can validate that its been created by listing the namespaces again. You can now use the namespace when using other kubectl commands. For example the following command should return _"No resources found."_:
 
-```
+```bash
 kubectl get pods -n my-namespace
 ```
 
 But if you run the command against the kube-system namespace you'll see lots of pods returned:
 
-```
+```bash
 kubectl get pods -n kube-system
 ```
 
@@ -60,13 +60,13 @@ spec:
 
 This file is going to start us a single pod with a single container running nginx version 1.13.5. To create this in the cluster run the command:
 
-```
+```bash
 kubectl create -f pod.yaml
 ```
 
 Now lets validate the container is running:
 
-```
+```bash
 kubectl get po -n my-namespace
 NAME        READY     STATUS    RESTARTS   AGE
 nginx-pod   1/1       Running   0          6s
@@ -74,9 +74,10 @@ nginx-pod   1/1       Running   0          6s
 
 You can dive further into the information about this container by running the following:
 
-```
+```bash
 kubectl describe po nginx-pod -n my-namespace
 ```
+
 You'll get lots of information including the IP kubernetes has assigned the pod on the internal network. However this won't be routable so lets move onto the next exercise.
 
 ### 3. Add a service / ingress
@@ -85,7 +86,7 @@ So we want to test that our new pod is working and browse to the content it is s
 
 First of all find out your clusters IP address and make a note of it:
 
-```
+```bash
 minikube ip
 ```
 
@@ -109,26 +110,26 @@ spec:
 
 This file creates a NodePort for us and binds it to port 30080 on the minikube IP address. Internally its looking for a pod with a label _nginx-pod_ as its selector and that pod is running on port 80. Lets go ahead and create the service:
 
-```
+```bash
 kubectl create -f service.yaml
 ```
 
 and to validate this has created we can use the kubectl get command:
 
-```
+```bash
 kubectl get services -n my-namespace
 ```
 
 you should get a similar output:
 
-```
+```bash
 NAME            TYPE       CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 nginx-service   NodePort   10.0.0.148   <none>        80:30080/TCP   12m
 ```
 
 The Cluster-IP yet again is an internally routable IP to kubernetes and can be used by other containers in the cluster, either directly or via service discovery. More interesting we can get some information about our new service:
 
-```
+```bash
 kubectl describe service nginx-service -n my-namespace
 
 Name:                     nginx-service
@@ -180,7 +181,7 @@ spec:
 
 and lets apply this (apply is like create build can handle updates):
 
-```
+```bash
 kubectl apply -f deployment.yaml
 ```
 
@@ -202,7 +203,7 @@ spec:
     nodePort: 30090
 ```
 
-```
+```bash
 kubectl apply -f deployment-service.yaml
 ```
 
@@ -210,7 +211,7 @@ You can validate this is running like before and you should note that this time 
 
 If you describe the details of this service you'll also notice multiple endpoints.
 
-```
+```bash
 kubectl describe service nginx-deployment-service -n my-namespace
 
 Name:                     nginx-deployment-service
@@ -231,13 +232,13 @@ Events:                   <none>
 
 Because we are using a deployment we can now scale the amount of pods up and down. Its pretty simple to do, so we'll try this next. First of all use kubectl to get a list of pods in your namespace. You'll have two named nginx-deployment-<UID>. Now lets scale that to 4 pods:
 
-```
+```bash
 kubectl scale deployment nginx-deployment --replicas=4 -n my-namespace
 ```
 
 now when you list your pods you'll see 4 nginx-deployments-<UID> containers running. Also you will see the service has dynamically updated with extra endpoints:
 
-```
+```bash
 kubectl describe service nginx-deployment-service -n my-namespace
 
 Name:                     nginx-deployment-service
@@ -300,7 +301,7 @@ spec:
 
 Now run:
 
-```
+```bash
 kubectl apply -f combined.yaml
 ```
 
@@ -308,7 +309,7 @@ You can test the deployment by going to http://minikube-ip:30100
 
 Another interesting thing to note is that a Deployment/ReplicaSet ensures you always have the correct number of replicas running. Try deleting one of you containers and then look at the get pods output again.
 
-```
+```bash
 kubectl delete pod <POD_NAME> -n my-namespace
 kubectl get pods -n my-namespace
 ```
@@ -319,7 +320,7 @@ You should see that kubernetes starts a new pod to replace the terminated one.
 
 Lets tidy up the resources we've just created.
 
-```
+```bash
 kubectl delete -f pod.yaml
 kubectl delete -f service.yaml
 kubectl delete -f deployment.yaml

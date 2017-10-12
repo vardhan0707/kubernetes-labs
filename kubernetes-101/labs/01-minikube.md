@@ -14,7 +14,7 @@ Install and connect to minikube using kubectl. Documentation can be found [here]
 
 #### Installation on OSX
 
-```
+```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.22.3/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 ```
 
@@ -24,7 +24,7 @@ Feel free to leave off the sudo mv minikube /usr/local/bin if you would like to 
 
 Linux
 
-```
+```bash
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.22.3/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 ```
 
@@ -46,7 +46,7 @@ Download the minikube-installer.exe file, and execute the installer. This will a
 
 When you run minikube, it shoudl automatically configure kubectl for you. You can start the service by running:
 
-```
+```bash
 minikube start
 ```
 
@@ -54,14 +54,14 @@ minikube start
 
 If you have kubectx configured you can easily see which cluster kubectl is configured to connect to:
 
-```
+```bash
 $ kubectx
 minikube
 ```
 
 Once you have confirmed or switched to the minikube config try some of the following commands:
 
-```
+```bash
 kubectl version
 kubectl -n kube-system get pods
 ```
@@ -77,13 +77,13 @@ The [kubernetes dashboard](https://github.com/kubernetes/dashboard) is a web GUI
 
 On minikube you can easily install this by running the following command:
 
-```
+```bash
 minikube addons enable dashboard
 ```
 
 Now you can easily get access to this dashboard by running:
 
-```
+```bash
 minikube dashboard
 ```
 

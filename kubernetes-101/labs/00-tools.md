@@ -13,13 +13,13 @@ For the first exercise we will install the kubectl tool to allow you to administ
 
 If you are running OSX we recommend that you use [HomeBrew](https://brew.sh/) to make package installation easier
 
-```
+```bash
 brew update && brew install kubectl
 ```
 
 ### Installation on Linux
 
-```
+```bash
 export KUBECTL_VERSION=1.8.0
 curl -O https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl
 chmod +x kubectl
@@ -34,7 +34,7 @@ Before you can do anything meaningful with kubectl you need to have a valid conf
 
 This is a import thing to understand, especially when running multiple clusters. Context is a referral to the cluster config thats currently active with kubectl. the following commands show you how to see what context you are using how to switch context.
 
-```
+```bash
 kubectl config current-context              # Display the current-context
 kubectl config use-context my-cluster-name  # set the default context to my-cluster-name
 ```
@@ -45,13 +45,13 @@ kubectl config use-context my-cluster-name  # set the default context to my-clus
 
 You can simply run:
 
-```
+```bash
 kubectl
 ```
 
 To return you a list of all available commands that kubectl provides:
 
-```
+```bash
 Basic Commands (Beginner):
   create         Create a resource from a file or from stdin.
   expose         Take a replication controller, service, deployment or pod and expose it as a new Kubernetes Service
@@ -112,19 +112,19 @@ Other Commands:
 
 If you want specific help on a given command run:
 
-```
+```bash
 kubectl <command> --help
 ```
 
 ### Getting information
 
-```
+```bash
 kubectl get pods
 ```
 
 returns all pods running in the default namespace
 
-```
+```bash
 kubectl -n application-a get pods
 ```
 
@@ -175,7 +175,7 @@ The get syntax is able to retrieve information on many parts of a k8s system, a 
 
 You can use kubectl in a couple of ways to create resources, the first way would be specify all your arguments on the cli but a more common way is to use a k8s json or yaml file to specify your resources and pass it into the create command.
 
-```
+```bash
 kubectl create -f my-service.yaml
 ```
 
@@ -183,13 +183,13 @@ kubectl create -f my-service.yaml
 
 This is a the exact same syntax as the create command. To delete everything you've created in the yaml or json file run the command:
 
-```
+```bash
 kubectl delete -f my-service.yaml
 ```
 
 You can also delete individual resources such as a pod:
 
-```
+```bash
 kubectl delete pod <pod_name>
 ```
 
