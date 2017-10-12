@@ -6,7 +6,7 @@ The aim of this lab is to get familiar with the basics. By the end you'll be abl
 
 Code examples for this Lab can be found [here](/kubernetes-101/labs/files)
 
-## Exercises  
+## Exercises
 
 ### 1. Create/Use a namespace
 
@@ -309,8 +309,8 @@ You can test the deployment by going to http://minikube-ip:30100
 Another interesting thing to note is that a Deployment/ReplicaSet ensures you always have the correct number of replicas running. Try deleting one of you containers and then look at the get pods output again.
 
 ```
-kubectl delete pod <POD_NAME> -n my-namepsace
-kubectl get pods -n my-namepsace
+kubectl delete pod <POD_NAME> -n my-namespace
+kubectl get pods -n my-namespace
 ```
 
 You should see that kubernetes starts a new pod to replace the terminated one.

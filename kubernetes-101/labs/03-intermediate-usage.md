@@ -2,7 +2,7 @@
 
 ## Intermediate Usage
 
-If you want to try some debug of a cotainer. Logs and exec are very useful commands.
+If you want to try some debug of a container. Logs and exec are very useful commands.
 
 ### 1. Logs
 
