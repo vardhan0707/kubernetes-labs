@@ -181,7 +181,7 @@ spec:
 and lets apply this (apply is like create build can handle updates):
 
 ```
-kubectl apply -f deployment.yaml
+kubectl apply -f deployment-service.yaml
 ```
 
 Now we need a service for this deployment, create a file called deployment-service.yaml:
