@@ -1,10 +1,20 @@
 # Lab 2
 
-# Exercise build a cluster
+## Exercise build a cluster
 
-Run KOPS create
+### Run KOPS create
 
-The follow command will create all the files required for the deployment. It wont actually create the cluster unless you add --yes to the end. However we want to tweak the install further so we wont add this flag.
+The follow command will create all the files required for the deployment. It wont actually create the cluster unless you add --yes to the end. However we want to tweak the install further so we wont add this flag. This method will not use the default KOPS method which creates a new VPC, subnets, and NAT gateways, but it will instead allow you to deploy into an existing VPC.
+
+Lets start by setting up some env variables to make running the comands easier:
+
+```bash
+export S3_BUCKET=s3://your-bucket-name
+export CLUSTER_NAME=your-cluster-fqdn
+export VPC_ID=your_target_vpc
+```
+
+Now lets create the cluster config:
 
 ```bash
 kops create cluster \
@@ -60,16 +70,61 @@ example:
 
 Once this command runs it will place files in S3 that are then used by the S3 command in the future to make further edits. You can of course tweak other values to customise the deployment.
 
-Now run:
+As we stated before we don't want to allow KOPS to default and create a new VPC or to automatically select subents for us. So we are going to go in and edit the cluster settings:
 
 ```bash
-kops edit cluster
+kops edit cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}
 ```
 
-Then to finalise changes run:
+There will be a section called subnets and this will contain 6 subnets by default, private and utility subnets. Private are where your masters are deployed and utility are for nodes. We are going to go ahead and edit these by changing the subenet-ids and the cidr blocks to match where we want to deploy to and then we'll add the address of the ANT gateways (egress). You'll end up with something like the following:
+
+```
+subnets:
+ - cidr: 10.199.24.0/26
+   egress: nat-012345678910
+   id: subnet-12345
+   name: eu-central-1a
+   type: Private
+   zone: eu-central-1a
+ - cidr: 10.199.24.64/26
+   egress: nat-109876543210
+   id: subnet-56789
+   name: eu-central-1b
+   type: Private
+   zone: eu-central-1b
+ - cidr: 10.199.24.128/26
+   egress: nat-201918171615
+   id: subnet-101112
+   name: eu-central-1c
+   type: Private
+   zone: eu-central-1c
+ - cidr: 10.199.25.128/27
+   id: subnet-131415
+   name: utility-eu-central-1a
+   type: Utility
+   zone: eu-central-1a
+ - cidr: 10.199.25.160/27
+   id: subnet-161718
+   name: utility-eu-central-1b
+   type: Utility
+   zone: eu-central-1b
+ - cidr: 10.199.25.192/27
+   id: subnet-192021
+   name: utility-eu-central-1c
+   type: Utility
+   zone: eu-central-1c
+```
+
+Save this file and now you are ready to deploy, you can verify the actions taken by running:
 
 ```bash
-kops update cluster --yes
+kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}
+```
+
+Then to commit the changes run the same command with --yes on the end:
+
+```bash
+kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket} --yes
 ```
 
 ## Exercises
