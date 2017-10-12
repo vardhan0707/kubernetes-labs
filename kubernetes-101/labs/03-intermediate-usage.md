@@ -24,6 +24,7 @@ you can also follow the logs with:
 
 ```
 kubectl -n my-namespace logs -f <container-name>
+```
 
 ### 2. Exec
 
