@@ -40,3 +40,12 @@ kubectl -n my-namespace exec -it <container-name> <command>
 ```
 
 the ```-it``` flag makes the session interactive so if running bash you can debug a container from within.
+
+## Exercises
+
+- Lab 1: [Installing k8s tools](/kubernetes-101/labs/00-tools.md)
+- Lab 2: [Install Minikube](/kubernetes-101/labs/01-minikube.md)
+- Lab 3: [Basic tool usage](/kubernetes-101/labs/02-basic-usage.md)
+- Lab 4: [Intermediate tool usage](/kubernetes-101/labs/03-intermediate-usage.md)
+
+##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)
