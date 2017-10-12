@@ -1,4 +1,4 @@
-
+# Lab 3
 
 ## Exercises
 
@@ -6,7 +6,7 @@ Deployments of extra services
 
 ### Deploying services to the cluster
 
-The cluster should have some standard services deployed onto it. These include:
+Its useful to deploy some extra services to the cluster, in this lab we'll cover off:
 
 - Monitoring via heapster
 - The Dashboard
@@ -14,6 +14,8 @@ The cluster should have some standard services deployed onto it. These include:
 - Autoscaler
 
 #### Heapster:
+
+Its worth noting that its best to bring up heapster before the dashboard to ensure you get teh graphs in the dashboard.
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
@@ -41,11 +43,27 @@ helm init
 This deploys tiller on your cluster and you can check its running by issuing the command:
 
 ```bash
-kubectl get po -n kube-system
+kubectl get po -n kube-system | grep tiller
 ```
 
+The helm documentation can be found [here](https://helm.sh/)
+
 #### Autoscaler:
-Run the following script and change the following MIN_NODES, MAX_NODES and GROUP_NAME:
+
+Before installing the auto scaller we need to change your KOPS InstanceGroup for the nodes to change the min and max nodes:
+
+```bash
+kops edit ig nodes --name=${CLUSTER_NAME} --state=${S3_Bucket}
+```
+
+This will allow the ASG to scale, by default both values are 3. Now commit the changes:
+
+```bash
+kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}
+```
+
+
+Now prepare the following script and change the following MIN_NODES, MAX_NODES and GROUP_NAME to match your settings:
 
 ```
 CLOUD_PROVIDER=aws
