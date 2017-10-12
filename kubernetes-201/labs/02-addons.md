@@ -15,32 +15,32 @@ The cluster should have some standard services deployed onto it. These include:
 
 #### Heapster:
 
-```
+```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
 ```
 
 #### DashBoard:
 
-```
+```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.3.yaml
 ```
 
 To get your dashboard password run:
 
-```
+```bash
 kubectl config view --minify
 ```
 
 #### Helm:
 Install helm on your system and run:
 
-```
+```bash
 helm init
 ```
 
 This deploys tiller on your cluster and you can check its running by issuing the command:
 
-```
+```bash
 kubectl get po -n kube-system
 ```
 
@@ -68,6 +68,13 @@ sed -i -e "s@{{AWS_REGION}}@${AWS_REGION}@g" "${addon}"
 sed -i -e "s@{{SSL_CERT_PATH}}@${SSL_CERT_PATH}@g" "${addon}"
 
 kubectl apply -f ${addon}
+```
+
+The make the script executable and then run it:
+
+```bash
+chmod +x cluster-autoscaler.sh
+./cluster-autoscaler.sh
 ```
 
 ## Exercises
