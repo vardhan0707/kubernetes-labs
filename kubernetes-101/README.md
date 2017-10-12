@@ -93,7 +93,7 @@ By default Kubernetes uses KubeNet as its network model. However its possible to
 
 and many more. Each option has its pro's and con's so take a good look a the one that suits you. Calico for example is very good at integrating and managing network policies.
 
-## Kubernetes Temrinology
+## Kubernetes Terminology
 
 Once you have a running k8s cluster there are some basic core concepts you need to understand. These terms are:
 
