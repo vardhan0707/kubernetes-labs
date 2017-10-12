@@ -181,7 +181,7 @@ spec:
 and lets apply this (apply is like create build can handle updates):
 
 ```
-kubectl apply -f deployment-service.yaml
+kubectl apply -f deployment.yaml
 ```
 
 Now we need a service for this deployment, create a file called deployment-service.yaml:
@@ -200,6 +200,10 @@ spec:
   - protocol: TCP
     port: 80
     nodePort: 30090
+```
+
+```
+kubectl apply -f deployment-service.yaml
 ```
 
 You can validate this is running like before and you should note that this time the NodePort is 30090, which you can now check out in your browser.
