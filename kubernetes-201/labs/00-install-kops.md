@@ -10,8 +10,9 @@ KOPS has a dependency on you having the AWS CLI installed and configured and kub
 
 ```bash
 $ brew update && brew install kops
-The kops binary is also available via our releases.
 ```
+
+The kops binary is also available via our releases.
 
 ### Linux
 
