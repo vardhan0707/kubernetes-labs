@@ -4,10 +4,27 @@
 
 ## Installing KOPS
 
-KOPS has a dependency on you having the AWSCLI installed and configured and kubectl.
+KOPS has a dependency on you having the AWS CLI installed and configured and kubectl.
+
+### OSX From Homebrew (Latest Stable Release)
+
+```bash
+$ brew update && brew install kops
+The kops binary is also available via our releases.
+```
+
+### Linux
+
+Download the latest release, then:
+
+```bash
+$ chmod +x kops-linux-amd64                 # Add execution permissions
+$ mv kops-linux-amd64 /usr/local/bin/kops   # Move the kops to /usr/local/bin
+```
 
 ## Install awscli
 
+Please refer to this guide to install the AWS CLI: [http://docs.aws.amazon.com/cli/latest/userguide/installing.html](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
 ## Prep for cluster
 

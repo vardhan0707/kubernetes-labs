@@ -2,9 +2,25 @@
 
 ## Overview
 
-Production kubernetes deployment on AWS
+In this lab we are going to productionise a k8s cluster using the KOPS deployment tool. KOPS will provision a k8s cluster for us and set up the PKI used to allow nodes to communcate with the API. It'll also set up out local ```kubectl```. Most guides use KOPS in its default mode in this guide we'll dig a little deeper and deploy our cluster into a set of existing AWS infrastructure. The dafult behavious or KOPS is to create a new VPC,, subenets, security groups, NAT Gateways and other resources required. However in this lab we are going to use existing an VPC that has subnets configured and NAT Gateways deployed.
 
 ### KOPS
+
+kops helps you create, destroy, upgrade and maintain production-grade, highly available, Kubernetes clusters from the command line. AWS (Amazon Web Services) is currently officially supported, with GCE and VMware vSphere in alpha and other platforms planned.
+
+#### Features
+
+- Automates the provisioning of Kubernetes clusters in (AWS)
+- Deploys Highly Available (HA) Kubernetes Masters
+- Supports upgrading from kube-up
+- Built on a state-sync model for dry-runs and automatic idempotency
+- Ability to generate configuration files for AWS CloudFormation and Terraform Terraform configuration
+- Supports custom Kubernetes add-ons
+- Command line autocompletion
+- Manifest Based API Configuration
+- Community supported!
+
+[Offical page here](https://github.com/kubernetes/kops)
 
 ### Reference Architecture
 
