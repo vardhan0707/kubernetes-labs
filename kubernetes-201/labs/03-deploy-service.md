@@ -1,14 +1,25 @@
+# Lab 4
+
 ## Exercises
 
-### Service Load Balancer
+### 1. Deployment
+
+### 2. Service Load Balancer
 
 We played with services in kubernetes-101 and used a NodePort to gain access to a pod. Now we have a production cluster in AWS we can take advantage of the ```cloud-controller-manager``` and use it to provision an ELB for us. The external ELB will then be configured to connect to our instances (masters and nodes) on a NodePort, inside the k8s the ClusterIP then is aware for the pod Enpoints and traffic is sent to the correct containers over the k8s network. The diagram below is a conceptual overview of this.
 
 ![Load Balancer](/kubernetes-201/labs/img/aws-elb-k8s.png "Fig. 1")
 (Figure 1: AWS and K8s ELB integration)
 
+### 3. Scale the deployment
 
+### 4. Logs and exec
 
+### 5. Persistant Disks
+
+### 6. Cordon / Uncordon
+
+### 7. Trigger an autoscale event
 
 - Lab 1: [Installing kops](/kubernetes-201/labs/00-install-kops.md)
 - Lab 2: [Deploy a cluster](/kubernetes-201/labs/01-deploy-cluster.md)
