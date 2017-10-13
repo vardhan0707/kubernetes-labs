@@ -2,13 +2,13 @@
 
 ## Overview
 
-In this lab we are going to productionise a k8s cluster using the KOPS deployment tool. t as minikube built you a dev cluster locally, OPS will provision a k8s cluster for us in AWS and set up the PKI, security groups, EBS volumes, etc. It'll also set up our local ```kubectl```. Most guides use KOPS in its default mode in this guide we'll dig a little deeper and deploy our cluster into existing AWS infrastructure. The dafult behavious or KOPS is to create a new VPC, subenets, security groups, NAT Gateways and other resources required. However in this lab we are going to use existing an VPC that has subnets configured and NAT Gateways deployed.
+In this lab we are going to productionise a k8s cluster using the kops deployment tool. t as minikube built you a dev cluster locally, OPS will provision a k8s cluster for us in AWS and set up the PKI, security groups, EBS volumes, etc. It'll also set up our local ```kubectl```. Most guides use kops in its default mode in this guide we'll dig a little deeper and deploy our cluster into existing AWS infrastructure. The dafult behavious or kops is to create a new VPC, subenets, security groups, NAT Gateways and other resources required. However in this lab we are going to use existing an VPC that has subnets configured and NAT Gateways deployed.
 
-### KOPS
+### kops
 
 kops helps you create, destroy, upgrade and maintain production-grade, highly available, Kubernetes clusters from the command line. AWS (Amazon Web Services) is currently officially supported, with GCE and VMware vSphere in alpha and other platforms planned.
 
-KOPS = Kluster Operations
+kops = Kluster Operations
 
 #### Features
 
@@ -26,7 +26,7 @@ KOPS = Kluster Operations
 
 #### Deployment Details
 
-When a KOPS cluster is deployed in High Availibily mode we end up with three master servers and a set of nodes. In KOPS terms these are known as InstanceGroups (IG's). The IG's map onto amazon autoscale groups.
+When a kops cluster is deployed in High Availibily mode we end up with three master servers and a set of nodes. In kops terms these are known as InstanceGroups (IG's). The IG's map onto amazon autoscale groups.
 
 ##### Master IG's/ASG's
 
@@ -40,14 +40,18 @@ Another default is to have a ASG for the nodes. This ASG spans all three AZ's so
 
 You can of course tell kops to deploy N nodes in the main node IG, but can also use other IG's. The advantage of being able to create extra IG's comes into play when you label or taint your nodes. It's possible for example to create an extra set of IG's that are dedicated for database container use and use io1 EBS volumes by default for performance. Or you may want a set of nodes with GPU's attached for rendering or computational analytics.
 
+##### Configuration
+
+kops
+
 ### Reference Architecture
 
-The diagrams below show a typical deployment of KOPS when using a prebuilt VPC. We stick to best practice and only deploy instances in private subenets, with ingress to the pods coming through ELB's deployed in the public subnets. This type of configuration does require you to have access to the provate networking via either direct connect or a VPN in order to access the API server with ```kubectl```. 
+The diagrams below show a typical deployment of kops when using a prebuilt VPC. We stick to best practice and only deploy instances in private subenets, with ingress to the pods coming through ELB's deployed in the public subnets. This type of configuration does require you to have access to the provate networking via either direct connect or a VPN in order to access the API server with ```kubectl```. 
 
-![AWS KOPS](./img/aws-kops.png "Figure. 1")
+![AWS kops](./img/aws-kops.png "Figure. 1")
 (Figure 1: AWS reference deployment Architecture)
 
-![AWS KOPS](./img/deployment.png "Figure. 2")
+![AWS kops](./img/deployment.png "Figure. 2")
 (Figure 2: AWS reference deployment Architecture)
 
 ## Exercises
