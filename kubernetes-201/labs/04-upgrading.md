@@ -33,7 +33,7 @@ The rolling update command will now evacuate all the pods from the hosts onto ot
 watch kubectl get no -o wide
 ```
 
-### 2. Upgrading the Ec2 Instances/AMI
+### 2. Upgrading the EC2 Instances/AMI
 
 As we rolled the cluster with the latest version of the kops debian image its pretty hard to do this update, however we can swap out debian and use coreOS instead. We'll first need to get the AMI-id of the latest coreOS image. This handy bash function can be used to get the ID for any region, add it to your .bash_profile / .bashrc and restart your terminal session:
 
@@ -74,7 +74,7 @@ kops edit ig master-eu-west-1c --name=${CLUSTER_NAME} --state=${S3_Bucket}
 kops edit ig nodes --name=${CLUSTER_NAME} --state=${S3_Bucket}
 ```
 
-change the AMI id in each of the above, for the one you generated with the ```coreos``` command.
+change the AMI-id in each of the above, for the one you generated with the ```coreos``` command.
 
 Now commit the changes to the cluster:
 
