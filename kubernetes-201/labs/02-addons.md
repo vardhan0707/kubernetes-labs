@@ -15,13 +15,15 @@ Its useful to deploy some extra services to the cluster, in this lab we'll cover
 
 #### Heapster:
 
-Its worth noting that its best to bring up heapster before the dashboard to ensure you get teh graphs in the dashboard.
+Heapster will bring you system usage metrics which are crucial for monitoring and keeping an eye on what resources a pod is using. Its worth noting that its best to bring up heapster before the dashboard to ensure you get teh graphs in the dashboard.
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
 ```
 
 #### DashBoard:
+
+The dash board project gives you a visual representation of whats happening in your cluster. It also allows you to deploy and edit resources.
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.3.yaml
@@ -34,6 +36,11 @@ kubectl config view --minify
 ```
 
 #### Helm:
+
+Helm describes its self as "the package manager for kubernetes". It allows you to have versionable deployments which you can easily upgrade or roll back, as well as providing flexibility in templating different environments for the same deployment.
+
+Download a binary release of the Helm client. You can use tools like homebrew, or look at the official [releases page](https://github.com/kubernetes/helm/releases).
+
 Install helm on your system and run:
 
 ```bash
@@ -50,6 +57,8 @@ The helm documentation can be found [here](https://helm.sh/)
 
 #### Autoscaler:
 
+The autoscaler will scale EC2 instances fro you should kubernetes start reporting it can't place pod's because of lack of resources.
+
 Before installing the auto scaller we need to change your KOPS InstanceGroup for the nodes to change the min and max nodes:
 
 ```bash
@@ -62,8 +71,7 @@ This will allow the ASG to scale, by default both values are 3. Now commit the c
 kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}
 ```
 
-
-Now prepare the following script and change the following MIN_NODES, MAX_NODES and GROUP_NAME to match your settings:
+Now prepare the following ```cluster-autoscaler.sh``` script and change the following MIN_NODES, MAX_NODES and GROUP_NAME to match your settings:
 
 ```
 CLOUD_PROVIDER=aws
