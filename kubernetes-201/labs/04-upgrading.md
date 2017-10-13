@@ -6,22 +6,31 @@ kops allows you to easily upgrade the version of kubernetes and the underlaying 
 
 ### 1. Upgrading Kubernetes
 
-
-
-Manual updates:
+At the time of writing this document the kops tool by default builds you a kubernetes 1.7.5 cluster, however 1.7.8 is available. We can use kops to instruct the cluster to use the later version. In this exercise we'll do that.
 
 kops has a new feature that drains nodes and validates their status before upgrading the next node. This is a very useful feature and ensure stability in your cluster whilst you are upgrading. To enable this feature run the following:
 
 ```bash
 export KOPS_FEATURE_FLAGS="+DrainAndValidateRollingUpdate"
+```
+
+No wits time to edit the cluster definition:
+
+```bash
 kops edit cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}
 ```
-Find and set the KubernetesVersion to the target version (e.g. v1.7.8)
+Find and set the ```KubernetesVersion``` to the target version (e.g. v1.7.8), once you've changed this save the file and exit. We are now ready to commit these changes to the cluster:
 
 ```bash
 kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket}  # to preview changes
 kops update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket} --yes
 kops rolling-update cluster --name=${CLUSTER_NAME} --state=${S3_Bucket} --yes
+```
+
+The rolling update command will now evacuate all the pods from the hosts onto other nodes, mark the node to stop new containers being created there, and when its happy everything has moved it will instruct AWS to stop the instance and replace it with a new one, which will contain the new configuration. If you watch the status of the nodes you'll see this happening and you'll see when a new node starts it'll be running kubernetes 1.7.8.
+
+```bash
+watch kubectl get no -o wide
 ```
 
 ### 2. Upgrading the Ec2 Instances/AMI
