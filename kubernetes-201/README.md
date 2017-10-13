@@ -42,7 +42,15 @@ You can of course tell kops to deploy N nodes in the main node IG, but can also 
 
 ##### Configuration
 
-kops
+When you run kops create command it store its configuration and state in a named S3 bucket within AWS. A single S3 bucket can be used for multiple deployments as the configuration is kept under the cluster name within the bucket. The directory/key structure of the bucket is as follows:
+
+- clustername
+ - addons # contains yaml configs for k8s components
+ - instancegroup # instance group configs (ami, disk etc etc)
+ - pki # ssh pub keys, client and node certs
+ - secrets # k8s secret configs
+ - cluster.spec # kops cluster config including docker settings etc
+ - config # kops cluster config with main tunable options
 
 ### Reference Architecture
 
