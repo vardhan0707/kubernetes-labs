@@ -42,7 +42,7 @@ These are the values you will need to edit:
 
 zones: This defines where your nodes get deployed to in their ASG
 example:
-**--zones=eu-central-1a,eu-central-1b,eu-central-1c**
+**--zones=eu-west-1a,eu-central-1b,eu-central-1c**
 
 kubeneretes-version: Self explanatory
 example:
@@ -58,7 +58,7 @@ example:
 
 master-zones: These are you AWS AZ's if you specify three you'll get a master in each AZ for HA.
 example:
-**--master-zones=eu-central-1a,eu-central-1b,eu-central-1c**
+**--master-zones=eu-west-1a,eu-central-1b,eu-central-1c**
 
 vpc: Set this to your target VPC ID
 example:
@@ -83,36 +83,36 @@ subnets:
  - cidr: 10.199.24.0/26
    egress: nat-012345678910
    id: subnet-12345
-   name: eu-central-1a
+   name: eu-west-1a
    type: Private
-   zone: eu-central-1a
+   zone: eu-west-1a
  - cidr: 10.199.24.64/26
    egress: nat-109876543210
    id: subnet-56789
-   name: eu-central-1b
+   name: eu-west-1b
    type: Private
-   zone: eu-central-1b
+   zone: eu-west-1b
  - cidr: 10.199.24.128/26
    egress: nat-201918171615
    id: subnet-101112
-   name: eu-central-1c
+   name: eu-west-1c
    type: Private
-   zone: eu-central-1c
+   zone: eu-west-1c
  - cidr: 10.199.25.128/27
    id: subnet-131415
-   name: utility-eu-central-1a
+   name: utility-eu-west-1a
    type: Utility
-   zone: eu-central-1a
+   zone: eu-west-1a
  - cidr: 10.199.25.160/27
    id: subnet-161718
-   name: utility-eu-central-1b
+   name: utility-eu-west-1b
    type: Utility
-   zone: eu-central-1b
+   zone: eu-west-1b
  - cidr: 10.199.25.192/27
    id: subnet-192021
-   name: utility-eu-central-1c
+   name: utility-eu-west-1c
    type: Utility
-   zone: eu-central-1c
+   zone: eu-west-1c
 ```
 
 Save this file and now you are ready to deploy, you can verify the actions taken by running:

@@ -70,7 +70,7 @@ CLOUD_PROVIDER=aws
 IMAGE=gcr.io/google_containers/cluster-autoscaler:v0.6.0
 MIN_NODES=3
 MAX_NODES=15
-AWS_REGION=eu-central-1
+AWS_REGION=eu-west-1
 GROUP_NAME="nodes.k8s.example.com"
 SSL_CERT_PATH="/etc/ssl/certs/ca-certificates.crt" # (/etc/ssl/certs for gce)
 
