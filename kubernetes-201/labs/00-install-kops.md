@@ -27,7 +27,7 @@ $ mv kops-linux-amd64 /usr/local/bin/kops   # Move the kops to /usr/local/bin
 
 Please refer to this guide to install the AWS CLI: [http://docs.aws.amazon.com/cli/latest/userguide/installing.html](http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
 
-## Prep for cluster
+## Prep for cluster build
 
 ### 1. Configure DNS
 
