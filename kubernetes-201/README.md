@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab we are going to productionise a k8s cluster using the kops deployment tool. t as minikube built you a dev cluster locally, OPS will provision a k8s cluster for us in AWS and set up the PKI, security groups, EBS volumes, etc. It'll also set up our local ```kubectl```. Most guides use kops in its default mode in this guide we'll dig a little deeper and deploy our cluster into existing AWS infrastructure. The dafult behavious or kops is to create a new VPC, subenets, security groups, NAT Gateways and other resources required. However in this lab we are going to use existing an VPC that has subnets configured and NAT Gateways deployed.
+In this lab we are going to productionise a k8s cluster using the kops deployment tool. kops is tool to create production clusters and is a single binary much as the minikube minikube tool we used to build a local cluster. kops will provision a k8s cluster for us in AWS and set up the PKI between clients and nodes, set up security groups, EBS volumes, it can also create a VPC and subenets, etc. It'll also set up our local ```kubectl```. Most guides use kops in its default mode in this guide we'll dig a little deeper and deploy our cluster into existing AWS infrastructure. The default behavious for kops is to create a new VPC, subenets, security groups, NAT Gateways and other resources required. However in this lab we are going to use existing an VPC that has subnets configured and NAT Gateways deployed.
 
 ### kops
 
@@ -24,9 +24,9 @@ kops = Kluster Operations
 
 [Offical page here](https://github.com/kubernetes/kops)
 
-#### Deployment Details
+#### Deployment Terminology
 
-When a kops cluster is deployed in High Availibily mode we end up with three master servers and a set of nodes. In kops terms these are known as InstanceGroups (IG's). The IG's map onto amazon autoscale groups.
+When a kops cluster is deployed in High Availibily mode we end up with three master servers and a set of nodes. In kops terms these are known as InstanceGroups (IG's). The IG's map onto amazon autoscale groups. When we spin our cluster up we will see 3 separate master IG's and a Nodes IG.
 
 ##### Master IG's/ASG's
 
@@ -61,8 +61,6 @@ The diagrams below show a typical deployment of kops when using a prebuilt VPC. 
 ![AWS kops](./img/aws-kops.png "Figure. 1")
 (Figure 1: AWS reference deployment Architecture)
 
-![AWS kops](./img/deployment.png "Figure. 2")
-(Figure 2: AWS reference deployment Architecture)
 
 ## Exercises
 
