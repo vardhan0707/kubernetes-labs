@@ -5,7 +5,7 @@
 In this lab we will build a cluster, we will see the creation of three InstanceGroups for the masters, one in each AZ and the creation of an InstanceGroup for Nodes spanning the three AZ's. The diagram below shows the reference architecture we are heading for.
 
 
-![AWS kops](./img/deployment.png "Figure. 1")
+![AWS kops](kubernetes-201/labs/img/deployment.png "Figure. 1")
 (Figure 1: AWS reference deployment Architecture)
 
 ### Run KOPS create
