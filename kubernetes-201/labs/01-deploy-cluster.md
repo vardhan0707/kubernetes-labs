@@ -2,6 +2,12 @@
 
 ## Exercise build a cluster
 
+In this lab we will build a cluster, we will see the creation of three InstanceGroups for the masters, one in each AZ and the creation of an InstanceGroup for Nodes spanning the three AZ's. The diagram below shows the reference architecture we are heading for.
+
+
+![AWS kops](./img/deployment.png "Figure. 1")
+(Figure 1: AWS reference deployment Architecture)
+
 ### Run KOPS create
 
 The follow command will create all the files required for the deployment. It wont actually create the cluster unless you add --yes to the end. However we want to tweak the install further so we wont add this flag. This method will not use the default KOPS method which creates a new VPC, subnets, and NAT gateways, but it will instead allow you to deploy into an existing VPC.
