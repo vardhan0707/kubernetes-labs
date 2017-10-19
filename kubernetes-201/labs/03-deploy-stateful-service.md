@@ -6,7 +6,16 @@
 
 In this lab we are going to create a WordPress deployment with persistent storage. This is because we want to keep stateful information such as the data for MySQL and any files you upload to the CMS.
 
-### Deploying MySQL
+### 1. Deploying MySQL
+
+### Create and select a namespace
+
+Lets get in good habits and deploy our application into a namespace so all the resources don't end up in the default ns.
+
+kubectl create ns myname-space
+kubens  myname-space
+
+### Secrets
 
 In this deployment we are going to create a service to allow the webserver to connect to MySQL using service discovery and a persistent volume for storing the contents of the database. Lets get going by creating a password for MySQL:
 
@@ -15,6 +24,8 @@ kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 ```
 
 This secret is going to be consumed by your deployment to set the password for mysql meaning you dont't have to store passwords in your yaml directly.
+
+### MySQL
 
 Now lets create the deployment file named `mysql-deployment.yaml`:
 
@@ -115,7 +126,7 @@ pvc/mysql-pv-claim   Bound     pvc-92325b42-b4ba-11e7-9f3f-0aa38f659e70   20Gi  
 
 If you check the AWS console you'll find that k8s has created a EBS volume for us.
 
-### Deploy WordPress
+### 2. Deploy WordPress
 
 Like the MySQL deployment we want to have a persistent volume for the data in WordPress. So lets create a file called `wordpress-deployment.yaml`:
 
@@ -214,7 +225,7 @@ Copy the DNS name and browse to this in your browser. Now if you complete the wi
 ![WordPress](kubernetes-201/labs/img/wp.png "Figure. 2")
 (Figure 2: WordPress deployed as a Stateful application)
 
-### Testing
+### 3. Testing
 
 Lets test that the stateful deployment has worked. If it has deleting a pod will not result in any data loss. In this test we'll delete the mysql pod. if it recovers correctly you should still see your WordPress site working and not have to initialise the DB again.
 
@@ -231,7 +242,7 @@ kubectl get po
 
 Once its in a state of running refresh your website in the browser and you'll see your site is still working.
 
-### Clean up
+### 4. Clean up
 
 Lets clean up the resources for the last couple of exercises:
 
