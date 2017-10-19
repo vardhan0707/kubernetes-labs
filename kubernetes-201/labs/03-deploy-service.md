@@ -10,6 +10,11 @@ This set of exercises will build on the kubernetes-101 lab and your knowledge of
 
 Lets get started with a deployment, in the first example we are going to deploy the default kubernetes guest book example. It consists of a front end application. The application is stateless so in this example we wont worry about persistent disks (EBS volumes), however we will need to use an ELB to gain access to the service.
 
+Here is a high level over view of what we are going to deploy and how they interact:
+
+![Stateless Application Deployment](kubernetes-201/labs/img/stateless.png "Figure. 1")
+(Figure 1: Stateless Application Deployment)
+
 #### Create and select a namespace
 
 Lets get in good habits and deploy our application into a namespace so all the resources don't end up in the default ns.
