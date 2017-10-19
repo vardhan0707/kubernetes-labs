@@ -216,6 +216,8 @@ Copy the DNS name and browse to this in your browser. Now if you complete the wi
 ![WordPress](kubernetes-201/labs/img/wp.png "Figure. 2")
 (Figure 2: WordPress deployed as a Stateful application)
 
+### Testing
+
 Lets test that the stateful deployment has worked. If it has deleting a pod will not result in any data loss. In this test we'll delete the mysql pod. if it recovers correctly you should still see your WordPress site working and not have to initialise the DB again.
 
 ```bash
