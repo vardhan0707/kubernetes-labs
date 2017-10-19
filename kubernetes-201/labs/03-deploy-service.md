@@ -10,7 +10,7 @@ This set of exercises will build on the kubernetes-101 lab and your knowledge of
 
 Lets get started with a deployment, in the first example we are going to deploy the default kubernetes guest book example. It consists of a front end application. The application is stateless so in this example we wont worry about persistent disks (EBS volumes), however we will need to use an ELB to gain access to the service.
 
-Here is a high level over view of what we are going to deploy and how they interact:
+Here is a high level over view of what we are going to deploy and how the components interact:
 
 ![Stateless Application Deployment](kubernetes-201/labs/img/stateless.png "Figure. 1")
 (Figure 1: Stateless Application Deployment)
@@ -351,6 +351,13 @@ This time when we query the service we are going to add an extra flag to our que
 ```bash
 kubectl get services -o wide
 ```
+
+Make a copy of the ELB address and paste that into your browser. You should now be able to get to the guest book application
+
+![Guestbook Application](kubernetes-201/labs/img/guestbook.png "Figure. 2")
+(Figure 2: Guestbook Application)
+
+**NOTE:** It may take a little while for the DNS to register the ELB.
 
 ### 2. Scale the Web Frontend
 
