@@ -191,13 +191,37 @@ spec:
           claimName: wp-pv-claim
 ```
 
-In this deployment above we are also using the mysql secret we deployed so that we can automatically configure the wp-config file for WordPress and have DB connectivity.
+In this deployment above we are also using the mysql secret we deployed as an environmental variable so that we can automatically configure the wp-config file for WordPress and have DB connectivity.
 
 Lets deploy WordPress:
 
 ```bash
-kubectl apply -f wordpress-deplyment.yaml
+kubectl create -f wordpress-deplyment.yaml
 ```
+
+Now lets find our service ELB so we can checkout the site:
+
+```bash
+kubectl get services wordpress
+```
+
+Lets find the service ELB address and test the deployment:
+
+```bash
+kubectl get services -o wide
+```
+
+Copy the DNS name and browse to this in your browser.
+
+### Clean up
+
+Lets clean up the resources for the last couple of exercises:
+
+```bash
+kubectl delete ns myname-space
+```
+
+This will automatically clean up all the resources you've created.
 
 ## Exercises
 
