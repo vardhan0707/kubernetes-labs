@@ -25,7 +25,7 @@ The guestbook application uses Redis to store its data. It writes its data to a 
 
 The manifest file, included below, specifies a Deployment controller that runs a single replica Redis master Pod.
 
-Create the file **redis-master-deployment.yaml**:
+Create the file `redis-master-deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1beta2
@@ -87,7 +87,7 @@ kubectl logs -f POD-NAME
 
 The guestbook applications needs to communicate to the Redis master to write its data. ALso there are redis slaves that will use this long running (immortal host name) to connect and sync.
 
-Lets create the file **redis-master-service.yaml**:
+Lets create the file `redis-master-service.yaml`:
 
 ```yaml
 apiVersion: v1
@@ -204,7 +204,7 @@ The response should be similar to this:
 
 The guestbook application needs to communicate to Redis slaves to read data. To make the Redis slaves discoverable, you need to set up a Service. A Service provides transparent load balancing to a set of Pods.
 
-create a file called **redis-slave-service.yaml**:
+create a file called `redis-slave-service.yaml`:
 
 ```yaml
 apiVersion: v1
@@ -250,7 +250,7 @@ The guestbook application has a web frontend serving the HTTP requests written i
 
 ##### Creating the Guestbook Frontend Deployment
 
-create the file **frontend-deployment.yaml**:
+create the file `frontend-deployment.yaml`:
 
 ```yaml
 apiVersion: apps/v1beta2
@@ -314,7 +314,7 @@ The response should be similar to this:
 
 ##### Creating the Frontend Service
 
-Now we have a fully running site but there is no way to access this site from outside the k8s cluster. So we need to add a service of type LoadBalancer. This will instruct the _cloud-controller-manager_ to deploy an ELB and connect it to a NodePort it opens on the on the masters and nodes. This in turn forwards to a ClusterIP and then to the pods. Create the file **frontend-service.yaml**:
+Now we have a fully running site but there is no way to access this site from outside the k8s cluster. So we need to add a service of type LoadBalancer. This will instruct the _cloud-controller-manager_ to deploy an ELB and connect it to a NodePort it opens on the on the masters and nodes. This in turn forwards to a ClusterIP and then to the pods. Create the file `frontend-service.yaml`:
 
 ```yaml
 apiVersion: v1
