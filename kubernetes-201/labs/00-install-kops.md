@@ -221,7 +221,7 @@ aws s3api put-bucket-versioning --bucket my-kops-config  --versioning-configurat
 - Lab 1: [Installing kops](/kubernetes-201/labs/00-install-kops.md)
 - Lab 2: [Deploy a cluster](/kubernetes-201/labs/01-deploy-cluster.md)
 - Lab 3: [Addons](/kubernetes-201/labs/02-addons.md)
-- Lab 4: [Deploy a service](/kubernetes-201/labs/03-deploy-service.md)
+- Lab 4: [Deploy a Stateless Application](/kubernetes-201/labs/03-deploy-service.md) | [Deploy a Stateful Application](/kubernetes-201/labs/03-deploy-stateful-service.md)
 - Lab 5: [Upgrade a cluster](/kubernetes-201/labs/04-upgrading.md)
 
 ##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)

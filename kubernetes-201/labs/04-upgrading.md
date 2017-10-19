@@ -2,7 +2,7 @@
 
 ## Exercises
 
-kops allows you to easily upgrade the version of kubernetes and the underlaying AMI (ec2 instance). 
+kops allows you to easily upgrade the version of kubernetes and the underlaying AMI (ec2 instance).
 
 ### 1. Upgrading Kubernetes
 
@@ -90,10 +90,12 @@ This will start the upgrade process and once finsihed you will see the nodes are
 kubectl get no -o wide
 ```
 
+## Exercises
+
 - Lab 1: [Installing kops](/kubernetes-201/labs/00-install-kops.md)
 - Lab 2: [Deploy a cluster](/kubernetes-201/labs/01-deploy-cluster.md)
 - Lab 3: [Addons](/kubernetes-201/labs/02-addons.md)
-- Lab 4: [Deploy a service](/kubernetes-201/labs/03-deploy-service.md)
+- Lab 4: [Deploy a Stateless Application](/kubernetes-201/labs/03-deploy-service.md) | [Deploy a Stateful Application](/kubernetes-201/labs/03-deploy-stateful-service.md)
 - Lab 5: [Upgrade a cluster](/kubernetes-201/labs/04-upgrading.md)
 
 ##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)

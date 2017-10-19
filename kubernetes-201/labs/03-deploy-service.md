@@ -4,9 +4,11 @@
 
 This set of exercises will build on the kubernetes-101 lab and your knowledge of ```kubectl```, but we will have the opportunity to play with some more advanced features that the cloud providers give us such as External LoadBalancers and Elastic Block Storage. The work load will also be distributed around your cluster due the fact we have multiple nodes.
 
+## Deploy a Stateless application
+
 ### 1. Deployment
 
-Lets get started with a deployment, in the first example we are going to deploy the default kubernetes guest book example. It consists of a front end application. The application is stateless so in this example we wont worry about persistent disks (EBS volumes)
+Lets get started with a deployment, in the first example we are going to deploy the default kubernetes guest book example. It consists of a front end application. The application is stateless so in this example we wont worry about persistent disks (EBS volumes), however we will need to use an ELB to gain access to the service.
 
 #### Create and select a namespace
 
@@ -389,10 +391,12 @@ kubectl get pods
 ```
 You should now see less front ends in the list.
 
+## Exercises
+
 - Lab 1: [Installing kops](/kubernetes-201/labs/00-install-kops.md)
 - Lab 2: [Deploy a cluster](/kubernetes-201/labs/01-deploy-cluster.md)
 - Lab 3: [Addons](/kubernetes-201/labs/02-addons.md)
-- Lab 4: [Deploy a service](/kubernetes-201/labs/03-deploy-service.md)
+- Lab 4: [Deploy a Stateless Application](/kubernetes-201/labs/03-deploy-service.md) | [Deploy a Stateful Application](/kubernetes-201/labs/03-deploy-stateful-service.md)
 - Lab 5: [Upgrade a cluster](/kubernetes-201/labs/04-upgrading.md)
 
 ##### Labs : [kubernetes-101](/kubernetes-101/) | [kubernetes-201](/kubernetes-201/) | [kubernetes-301](/kubernetes-301/)
