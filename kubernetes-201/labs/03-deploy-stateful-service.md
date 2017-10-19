@@ -1,8 +1,6 @@
 # Lab 4b
 
-## Exercises
-
-This set of exercises will build on the kubernetes-101 lab and your knowledge of ```kubectl```, but we will have the opportunity to play with some more advanced features that the cloud providers give us such as External LoadBalancers and Elastic Block Storage. The work load will also be distributed around your cluster due the fact we have multiple nodes.
+## Exercises Continued
 
 ## Deploy a Stateful application
 
