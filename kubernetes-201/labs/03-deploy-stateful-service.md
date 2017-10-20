@@ -142,6 +142,8 @@ metadata:
   name: wordpress
   labels:
     app: wordpress
+    annotations:
+      service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
 spec:
   ports:
     - port: 80
