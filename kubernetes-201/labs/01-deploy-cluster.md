@@ -26,6 +26,7 @@ kops create cluster \
 --admin-access 172.31.0.0/12 \
 --api-loadbalancer-type internal \
 --cloud aws \
+--cloud-labels "ProductCode=PRD297,Environment=dev,InventoryCode=combined-kops" \
 --networking calico \
 --topology private \
 --zones=${ZONES} \
