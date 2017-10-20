@@ -35,7 +35,7 @@ The manifest file, included below, specifies a Deployment controller that runs a
 Create the file `redis-master-deployment.yaml`:
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: redis-master
@@ -146,7 +146,7 @@ This deployment is going to launch two replica's (in this case redis slaves) for
 Create and Apply the Redis Slave Deployment from the `redis-slave-deployment.yaml` file:
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: redis-slave
@@ -260,7 +260,7 @@ The guestbook application has a web frontend serving the HTTP requests written i
 create the file `frontend-deployment.yaml`:
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: frontend

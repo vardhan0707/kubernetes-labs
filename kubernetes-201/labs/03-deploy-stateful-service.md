@@ -165,7 +165,7 @@ spec:
     requests:
       storage: 20Gi
 ---
-apiVersion: apps/v1beta2
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: wordpress
