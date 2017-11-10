@@ -8,7 +8,7 @@ In this lab we are going to create a WordPress deployment with persistent storag
 
 Here is a high level over view of what we are going to deploy and how the components interact, this time you can see we are using persistent volumes:
 
-![Stateful Application Deployment](kubernetes-201/labs/img/stateful.png "Figure. 1")
+![Stateful Application Deployment](./img/stateful.png "Figure. 1")
 (Figure 1: Stateful Application Deployment)
 
 ### 1. Deploying MySQL
