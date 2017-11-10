@@ -20,8 +20,8 @@ brew update && brew install kubectl
 ### Installation on Linux
 
 ```bash
-export KUBECTL_VERSION=1.8.0
-curl -O https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl
+export KUBECTL_VERSION=1.8.3
+curl -O https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl
 chmod +x kubectl
 sudo cp kubectl /usr/local/bin/kubectl
 ```
