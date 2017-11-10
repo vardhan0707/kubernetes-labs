@@ -12,7 +12,7 @@ Lets get started with a deployment, in the first example we are going to deploy 
 
 Here is a high level over view of what we are going to deploy and how the components interact:
 
-![Stateless Application Deployment](./kubernetes-201/labs/img/stateless.png "Figure. 1")
+![Stateless Application Deployment](./img/stateless.png "Figure. 1")
 (Figure 1: Stateless Application Deployment)
 
 #### Create and select a namespace
